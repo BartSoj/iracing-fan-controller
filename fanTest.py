@@ -11,4 +11,8 @@ while True:
     if speed < 0 or speed > 100:
         print("invalid speed")
         continue
+    if speed == 0:
+        fan.off()
+    elif not fan.status().is_on:
+        fan.on()
     fan.set_speed(speed)
